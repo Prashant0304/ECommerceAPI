@@ -72,6 +72,7 @@ namespace ECommerceAPI.Controllers
 
             var user = new User
             {
+                Name = dto.Name,
                 Email = dto.Email.Trim().ToLower(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 Role = "Customer"
