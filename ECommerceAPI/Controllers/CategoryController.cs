@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Data;
 using ECommerceAPI.DTOs;
 using ECommerceAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,8 @@ namespace ECommerceAPI.Controllers
             _context = context;
             _logger = logger;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-
         public async Task<IActionResult> GetCategories() 
         {
             _logger.LogInformation("fetching categories");
@@ -37,7 +37,7 @@ namespace ECommerceAPI.Controllers
 
             return Ok(categories);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -58,7 +58,7 @@ namespace ECommerceAPI.Controllers
             return Ok(category);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto dto)
         {
@@ -82,7 +82,7 @@ namespace ECommerceAPI.Controllers
 
 
 
-
+      
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

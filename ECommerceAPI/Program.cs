@@ -62,7 +62,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("EcommerceWebAPI",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod();
         });

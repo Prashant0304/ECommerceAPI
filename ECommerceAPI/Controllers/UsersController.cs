@@ -15,6 +15,7 @@ namespace ECommerceAPI.Controllers
         {
             _context = context;
         }
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {

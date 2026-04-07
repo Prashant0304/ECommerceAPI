@@ -60,7 +60,7 @@ namespace ECommerceAPI.Controllers
             rng.GetBytes(randomNumber);
             return Convert.ToBase64String(randomNumber);
         }
-
+        
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {
@@ -83,7 +83,7 @@ namespace ECommerceAPI.Controllers
 
             return Ok("User registered successfully");
         }
-
+        
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
@@ -144,7 +144,7 @@ namespace ECommerceAPI.Controllers
         }
 
 
-        [Authorize]
+        
         [HttpGet("profile")]
         public IActionResult GetProfile()
         {
